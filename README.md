@@ -2,7 +2,7 @@
 
 Boilerplate Preact app built with Parcel
 
-![template file tree image](https://raw.githubusercontent.com/abhisheksoni27/nano-preact-app/master/assets/template-demo.png)
+![template file tree image](https://raw.githubusercontent.com/abhisheksoni27/nano-preact-app/master/assets/template-tree.png)
 
 The actual template is here: [nano-preact-app-template](https://github.com/abhisheksoni27/nano-preact-app-template)
 
