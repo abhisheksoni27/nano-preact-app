@@ -1,12 +1,11 @@
 {
   "name": "nano-preact-app",
-  "version": "0.0.1",
+  "version": "0.0.10",
   "description": "Boilerplate Preact app built with Parcel",
   "bin": "./index.js",
   "repository": "https://github.com/abhisheksoni27/nano-preact-app.git",
   "author": "Abhishek Soni <abhisheksoni2720@gmail.com>",
   "license": "MIT",
-  "private": true,
   "dependencies": {
     "chalk": "^2.4.2",
     "download-git-repo": "^1.1.0"
