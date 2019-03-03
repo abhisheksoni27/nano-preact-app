@@ -3,14 +3,12 @@ const APP_NAME = "nano-preact-app";
 const log = console.log;
 
 const path = require("path");
-const exec = require("child_process").exec;
 const fs = require("fs");
 const util = require("util");
 const chalk = require("chalk");
 const download = require("download-git-repo");
 
 const githubDownload = util.promisify(download);
-const deleteFile = util.promisify(fs.unlink);
 
 const args = process.argv.slice(2);
 let projectLocation = args[0] && args[0].trim();
@@ -56,18 +54,10 @@ const main = async () => {
   process.stdout.write(chalk.green(" DONE\n\n"));
 
   await createNewPackageJSON(projectPath, projectName);
-
-  log(chalk.green("\n\n  Installing dependencies!  \n\n"));
-  await exec(`cd ${projectName}; npm install;`);
-
-  await // delete unnecessary files
-  await deleteFile(path.join(projectPath, "LICENSE"));
-  await deleteFile(path.join(projectPath, "package-lock.json"));
-
   // notify user that the app is ready
-  log(`${chalk.bgMagenta(chalk.cyanBright("  SUCCESS!  "))}
+  log(`${chalk.bgCyan(chalk.white("  SUCCESS!  "))}
 
-  Created project ${chalk.magenta(projectName)} at ${chalk.magenta(projectPath)}
+  Created project ${chalk.green(projectName)} at ${chalk.green(projectPath)}
 `);
 };
 
@@ -81,7 +71,7 @@ const createNewPackageJSON = async (projectPath, projectName) => {
     description: ""
   };
 
-  await fs.writeFile(
+  fs.writeFileSync(
     pkgJsonPath,
     JSON.stringify(newPackageJSON, null, 2),
     "utf8"
