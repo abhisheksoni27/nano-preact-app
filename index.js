@@ -57,6 +57,7 @@ const main = async () => {
 
   await createNewPackageJSON(projectPath, projectName);
 
+  log(chalk.green("\n\n  Installing dependencies!  \n\n"));
   await exec(`cd ${projectName}; npm install;`);
 
   await // delete unnecessary files
